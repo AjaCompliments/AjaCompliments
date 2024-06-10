@@ -1,0 +1,1 @@
+export const LINK_TO_BACKEND="192.168.100.11"

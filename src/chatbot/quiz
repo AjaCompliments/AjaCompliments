@@ -1,0 +1,93 @@
+import React, { useState } from 'react';
+
+const Question = ({ question, onChoiceChange }) => {
+  const handleChange = (e) => {
+    e.preventDefault();
+    onChoiceChange(e.target.value);
+  };
+
+  return (
+    <div className="well">
+      <h3>{question.text}</h3>
+      <hr />
+      <ul className="list-group">
+        {question.choices.map(choice => (
+          <li className="list-group-item" key={choice.id}>
+            {choice.id} <input type="radio" onChange={handleChange} name={question.id} value={choice.id} /> {choice.text}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const Scorebox = ({ current, total, score }) => {
+  return (
+    <div className="well">
+      Question {current} out of {total} 
+      <span className="pull-right"><strong>Score: {score}</strong></span>
+    </div>
+  );
+};
+
+const Results = ({ score, total }) => {
+  const percent = (score / total) * 100;
+  const message = 'You passed the quiz!';
+  const link = <a href="#app">Take Again</a>;
+
+  return (
+    <div className="well">
+      <h4>You Got {score} out of {total} Correct.</h4>
+      <hr />
+      <h1>{percent}% - {percent > 60 ? message : link}</h1>
+    </div>
+  );
+};
+
+export const Quiz = ({ questions }) => {
+  const [state, setState] = useState({
+    score: 0,
+    current: 1
+  });
+
+  const handleChange = (choice) => {
+    setState(prevState => ({
+      current: prevState.current + 1,
+      score: choice === questions[prevState.current - 1].correct ? prevState.score + 1 : prevState.score
+    }));
+  };
+
+  return (
+    <div>
+      {state.current > questions.length && <Results total={questions.length} score={state.score} />}
+      {state.current <= questions.length && <Scorebox total={questions.length} current={state.current} score={state.score} />}
+      {state.current <= questions.length && <Question question={questions[state.current - 1]} onChoiceChange={handleChange} />}
+    </div>
+  );
+};
+
+export const QUESTIONS = [
+  {
+    id: 1,
+    text: 'What is your name?',
+    choices: [
+      { id: 'a', text: 'Michael' },
+      { id: 'b', text: 'Ben' },
+      { id: 'c', text: 'Yuna' }
+    ],
+    correct: 'b'
+  },
+  {
+    id: 2,
+    text: 'What is your best friend\'s name?',
+    choices: [
+      { id: 'a', text: 'Luna' },
+      { id: 'b', text: 'Juliet' },
+      { id: 'c', text: 'Charlie' }
+    ],
+    correct: 'a'
+  }
+];
+
+
+
