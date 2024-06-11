@@ -21,7 +21,7 @@ const onloadUserCredentials=async ()=>{
   await axios({
       method:'get',
       headers: {Authorization:"bearer "+await JSON.parse(localStorage.getItem('token'))},
-      url:`http://${LINK_TO_BACKEND}:4000/users/getUser`
+      url:`${LINK_TO_BACKEND}:4000/users/getUser`
   }).then((response)=>{
       console.log(response)
       localStorage.setItem('USR',JSON.stringify(response.data))
@@ -45,7 +45,7 @@ useEffect(() => {
 const cb=(input)=>{
 setCreds(input)
 axios
-                .post(`http://${LINK_TO_BACKEND}:4000/users/login`,{"useremail":input.email,"userpass":input.password})
+                .post(`${LINK_TO_BACKEND}:4000/users/login`,{"useremail":input.email,"userpass":input.password})
                 .then((resp)=>{
                   storeData(resp.data);
                  
