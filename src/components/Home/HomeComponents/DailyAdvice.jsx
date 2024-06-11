@@ -8,7 +8,7 @@ const DailyAdvice = (props) => {
 
   const fetchAdvice = async () => {
     try {
-      const response = await axios.get(`${LINK_TO_BACKEND}:4000/astuces/getAll`);
+      const response = await axios.get(`${LINK_TO_BACKEND}/astuces/getAll`);
       setAdviceList(response.data);
     } catch (error) {
       console.error('Error fetching advice:', error);

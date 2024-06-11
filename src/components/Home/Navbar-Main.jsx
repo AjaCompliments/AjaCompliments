@@ -138,7 +138,7 @@ const [compliments, setCompliments] = useState([]);
 const [storedCompliments,setStoredCompliments]=useState([]);
 const fetchCompliments = async () => {
   try {
-    const response = await axios.get(`${LINK_TO_BACKEND}:4000/compliments/fetchAll`);
+    const response = await axios.get(`${LINK_TO_BACKEND}/compliments/fetchAll`);
     setCompliments(response.data);
   } catch (error) {
     console.error('Error fetching compliments:', error);
@@ -151,7 +151,7 @@ const fetchAndStoreCompliments = async () => {
     if (!newPrescriptions) return; // If newPrescriptions is not set, exit early
 
     // Fetch all compliments from the provided URL
-    const response = await axios.get(`${LINK_TO_BACKEND}:4000/compliments/fetchAll`);
+    const response = await axios.get(`${LINK_TO_BACKEND}/compliments/fetchAll`);
     const allCompliments = response.data;
 
     // Filter compliments based on newPrescriptions

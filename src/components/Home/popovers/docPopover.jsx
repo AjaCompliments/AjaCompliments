@@ -9,7 +9,7 @@ const DoctorsPopover = (props) => {
 
   const fetchDoctors = async () => {
     try {
-      const response = await axios.get(`${LINK_TO_BACKEND}:4000/doctors/getAll`);
+      const response = await axios.get(`${LINK_TO_BACKEND}/doctors/getAll`);
       setDoctors(response.data);
     } catch (error) {
       console.error('Error fetching doctors:', error);

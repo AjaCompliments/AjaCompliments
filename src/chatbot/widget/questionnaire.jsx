@@ -15,7 +15,7 @@ const Questionnaire = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    axios.get(`${LINK_TO_BACKEND}:4000/compliments/fetchAll`)
+    axios.get(`${LINK_TO_BACKEND}/compliments/fetchAll`)
       .then(response => {
         setCompliments(response.data);
       })
@@ -107,7 +107,7 @@ const Questionnaire = () => {
       newrescriptions: newPrescriptions
     };
 
-    axios.put(`${LINK_TO_BACKEND}:4000/users/updateUsr`, userData, {
+    axios.put(`${LINK_TO_BACKEND}/users/updateUsr`, userData, {
       headers: {
         'authorization': `bearer ${JSON.parse(localStorage.getItem("token"))}`
       }
