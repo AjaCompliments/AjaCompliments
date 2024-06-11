@@ -20,7 +20,7 @@ const IframeComponent = (props) => {
       <div style={{opacity:props.opacity?"100%":"0",scale:"60%",background:"#fff",left:"0",position:"absolute",marginTop:"27vh",marginLeft:"-27vw",borderRadius:"40px"}}>
       <iframe
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-        src="http://192.168.100.11:5500"
+        src="https://megaconfidence.github.io/bt-heart-monitor/"
         width="690" // Adjusted width for better fit
         height="450" // Adjusted height for better fit
         style={{

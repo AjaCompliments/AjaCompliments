@@ -12,7 +12,7 @@ const Diagnostic = () => {
 
   // Fetch compliments on component mount
   useEffect(() => {
-    axios.get(`http://${LINK_TO_BACKEND}:4000/compliments/fetchAll`)
+    axios.get(`${LINK_TO_BACKEND}:4000/compliments/fetchAll`)
       .then(response => {
         setCompliments(response.data);
       })
@@ -94,7 +94,7 @@ const Diagnostic = () => {
       newrescriptions: newPrescriptions
     };
 
-    axios.put(`http://${LINK_TO_BACKEND}:4000/users/updateUsr`,
+    axios.put(`${LINK_TO_BACKEND}:4000/users/updateUsr`,
     {
       iduser: userDetails.iduser,
       weight: userDetails.weight,

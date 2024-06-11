@@ -32,7 +32,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const handleAstuce = async () => {
     try {
       // Make an HTTP GET request to fetch all astuces
-      const response =await axios.get(`http://${LINK_TO_BACKEND}:4000/astuces/getAll`);
+      const response =await axios.get(`${LINK_TO_BACKEND}:4000/astuces/getAll`);
   
       // Extract astuces from the response data
       const astuces = response.data;
