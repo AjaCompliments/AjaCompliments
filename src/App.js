@@ -52,8 +52,8 @@ axios
                     localStorage.setItem('token', JSON.stringify(resp.data));
                     onloadUserCredentials()
                   setToken(resp.data);
-                  console.log(resp.data)//,cb(resp.data)
-                ,window.location.reload(false)
+                  console.log(resp.data);
+                window.location.reload(false);
                 
                 })
                 .catch(error=>{
