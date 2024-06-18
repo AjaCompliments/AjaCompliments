@@ -53,7 +53,7 @@ axios
                     onloadUserCredentials()
                   setToken(resp.data);
                   console.log(resp.data)//,cb(resp.data)
-             //   ,onloadUserCredentials(),window.location.reload(false)
+                ,window.location.reload(false)
                 
                 })
                 .catch(error=>{
