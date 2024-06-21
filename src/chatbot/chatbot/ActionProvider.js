@@ -74,7 +74,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     setState((prev) => ({
       ...prev,
-      messages: [...prev.messages, botMessage],
+       messages: [ botMessage],
+       //messages: [...prev.messages, botMessage],
     }));
   };
   const handleDiagnostic = () => {
@@ -82,7 +83,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
     setState((prev) => ({
       ...prev,
-      messages: [...prev.messages, botMessage],
+      messages: [ botMessage],
+      //messages: [...prev.messages, botMessage],
     }));
   };
   const handleFurtherQuickReplies2 = () => {
@@ -95,19 +97,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
 
-  const handleDog = () => {
-    const botMessage = createChatBotMessage(
-      "Here's a nice dog picture for you!",
-      {
-        widget: 'dogPicture',
-      }
-    );
 
-    setState((prev) => ({
-      ...prev,
-      messages: [...prev.messages, botMessage],
-    }));
-  };
 
 
   // Put the handleHello function in the actions object to pass to the MessageParser
@@ -117,7 +107,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         return React.cloneElement(child, {
           actions: {
             handleHello,
-            handleDog,
+          
             handleHeadache,
             handleClickedFAQs,
             handleParrotClick,

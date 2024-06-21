@@ -44,7 +44,7 @@ const VerificationComponent = (props) => {
                 <CustomText>Verifiez</CustomText>
               </CustomButton1>
               <div style={{ marginTop: "3vh", marginLeft: "3vw" }} onClick={props.setScreen}>
-                <CustomSubText>already verified? login</CustomSubText>
+                <CustomSubText>deja verifié? se connectez</CustomSubText>
               </div>
             </div>
             {/* <div style={{ marginTop: "3vh", marginLeft: "20vw" }}>
