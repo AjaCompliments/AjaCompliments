@@ -12,6 +12,7 @@ import ImageComponent from '../Standalone Components/logo1';
 import CustomNameInput from '../Standalone Components/CustomNameInput';
 
 const SignupComponent = (props) => {
+  const [creds,setCreds]=React.useState({name:"",email:"",password:""})
   return (
     <>
       <div style={{ 
@@ -35,27 +36,27 @@ const SignupComponent = (props) => {
               <WelcomeText />
               <FloatingTextLogin />
               <div style={{ marginBottom: "5vh" }}>
-                <CustomNameInput placeholder="votre nom" />
+                <CustomNameInput placeholder="votre nom" value={creds.name} onChange={(event)=>{setCreds({...creds,name:event.target.value})}}/>
               </div>
               <div style={{ marginBottom: "5vh" }}>
-                <CustomEmailInput placeholder="votre email" />
+                <CustomEmailInput placeholder="votre email" value={creds.email} onChange={(event)=>{setCreds({...creds,email:event.target.value})}}/>
               </div>
               <div style={{ marginBottom: "5vh" }}>
-                <CustomPasswordInput placeholder="mot de passe" />
+                <CustomPasswordInput placeholder="mot de passe" value={creds.password} onChange={(event)=>{setCreds({...creds,password:event.target.value})}} />
               </div>
-              <CustomButton1>
-                <CustomText>Sign Up</CustomText>
+              <CustomButton1 onClick={()=>{props.callback(creds)}}>
+                <CustomText>Inscrire</CustomText>
               </CustomButton1>
               <div style={{ marginTop: "3vh", marginLeft: "3vw" }} onClick={props.setScreen}>
-                <CustomSubText>verify</CustomSubText>
+                <CustomSubText>email recu? verifiez</CustomSubText>
               </div>
             </div>
-            <div style={{ marginTop: "3vh", marginLeft: "20vw" }}>
+            {/* <div style={{ marginTop: "3vh", marginLeft: "20vw" }}>
               <CustomButton1>
                 <CustomText>Start your test</CustomText>
                 <ArrowForward style={{ color: "#F6EDE4" }} />
               </CustomButton1>
-            </div>
+            </div> */}
           </>
         </div>
       </div>

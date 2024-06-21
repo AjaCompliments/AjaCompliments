@@ -11,6 +11,7 @@ import ImageComponent from '../Standalone Components/logo1';
 import CustomVerificationInput from '../Standalone Components/VerificationInput';
 import CustomEmailInput from '../Standalone Components/EmailInput';
 const VerificationComponent = (props) => {
+  const [creds,setCreds]=React.useState({email:"",password:""})
   return (
     <>
       <div style={{ 
@@ -34,24 +35,24 @@ const VerificationComponent = (props) => {
               <WelcomeText />
               <FloatingTextVerification />
               <div style={{ marginBottom: "5vh" }}>
-                <CustomEmailInput placeholder="Enter your name or email" />
+                <CustomEmailInput placeholder="Enter your name or email" value={creds.email} onChange={(event)=>{setCreds({...creds,email:event.target.value})}}/>
               </div>
               <div style={{ marginBottom: "5vh" }}>
-                <CustomVerificationInput placeholder="Enter your activation code" />
+                <CustomVerificationInput placeholder="Enter your activation code" value={creds.password} onChange={(event)=>{setCreds({...creds,password:event.target.value})}}/>
               </div>
-              <CustomButton1>
-                <CustomText>Verify</CustomText>
+              <CustomButton1  onClick={()=>{props.callback(creds)}}>
+                <CustomText>Verifiez</CustomText>
               </CustomButton1>
               <div style={{ marginTop: "3vh", marginLeft: "3vw" }} onClick={props.setScreen}>
                 <CustomSubText>already verified? login</CustomSubText>
               </div>
             </div>
-            <div style={{ marginTop: "3vh", marginLeft: "20vw" }}>
+            {/* <div style={{ marginTop: "3vh", marginLeft: "20vw" }}>
               <CustomButton1>
                 <CustomText>Start your test</CustomText>
                 <ArrowForward style={{ color: "#F6EDE4" }} />
               </CustomButton1>
-            </div>
+            </div> */}
           </>
         </div>
       </div>

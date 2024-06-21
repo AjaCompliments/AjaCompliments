@@ -487,7 +487,7 @@ background: "linear-gradient(145.63deg, #44A5A5 12.8%, #91FCFC 12.81%, rgba(255,
         </ListItem>
         <ListItem sx={10}>
           <div style={{scale:"80%",marginTop:"-17vh",marginLeft:"68vw"}}>
-<Logout callback={()=>{localStorage.removeItem("USR");localStorage.removeItem('token');window.location.reload(false)}}/>
+<Logout callback={()=>{props.tokenCallback("");localStorage.removeItem("USR");localStorage.removeItem('token');window.location.reload(false)}}/>
 </div>
         </ListItem>
 <ListItem>

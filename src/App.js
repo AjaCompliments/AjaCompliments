@@ -65,6 +65,52 @@ axios
                 })
 console.log(input)
 }
+const cb1=(input)=>{
+  setCreds(input)
+  axios
+                  .post(`${LINK_TO_BACKEND}/users/register`,{"username":input.name,"useremail":input.email,"userpass":input.password})
+                  .then((resp)=>{
+                    storeData(resp.data);
+                   
+                      localStorage.setItem('token', JSON.stringify(resp.data));
+                      onloadUserCredentials()
+                    setToken(resp.data);
+                    console.log(resp.data);
+                  window.location.reload(false);
+                  
+                  })
+                  .catch(error=>{
+                    if(error){
+                      alert(
+                          'incorrect credentials',
+                          'please check your email or password'
+                      )}
+                  })
+  console.log(input)
+  }
+  const cb2=(input)=>{
+    setCreds(input)
+    axios
+                    .post(`${LINK_TO_BACKEND}/users/verify`,{"useremail":input.email,"ValidatorCode":input.password})
+                    .then((resp)=>{
+                      storeData(resp.data);
+                     
+                        localStorage.setItem('token', JSON.stringify(resp.data));
+                        onloadUserCredentials()
+                      setToken(resp.data);
+                      console.log(resp.data);
+                    window.location.reload(false);
+                    
+                    })
+                    .catch(error=>{
+                      if(error){
+                        alert(
+                            'incorrect credentials',
+                            'please check your email or password'
+                        )}
+                    })
+    console.log(input)
+    }
 // const handleSubmit = (event) => {
 //   event.preventDefault();
 //   const data = new FormData(event.currentTarget);
@@ -88,8 +134,8 @@ const [screen,setScreen]=useState("login")
   return (
     
    !token.length?screen==="login"?<YourComponent  callback={cb} setScreen={()=>{setScreen("signUp")}}/>:screen==="verification"?
-    <VerificationComponent navCallback="" tokenCallback="" setScreen={()=>{setScreen("login")}}/>:
-    <SignupComponent navCallback="" tokenCallback="" setScreen={()=>{setScreen("verification")}}/>:<Navbar user={user.username} navCallback="" tokenCallback=""/>
+    <VerificationComponent callback={cb2} navCallback="" tokenCallback="" setScreen={()=>{setScreen("login")}}/>:
+    <SignupComponent callback={cb1} navCallback="" tokenCallback="" setScreen={()=>{setScreen("verification")}}/>:<Navbar user={user.username} navCallback="" tokenCallback={setToken}/>
   );
 }
 

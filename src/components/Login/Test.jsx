@@ -69,13 +69,13 @@ const YourComponent = (props) => {
             </div>
 
           </div>
-
+{/* 
           <div style={{ marginTop: "3vh", marginLeft: "20vw" }}>
             <CustomButton1>
               <CustomText>Commencer votre test</CustomText>
               <ArrowForward style={{ "color": "#F6EDE4" }} />
             </CustomButton1>
-          </div>
+          </div> */}
 
 
 

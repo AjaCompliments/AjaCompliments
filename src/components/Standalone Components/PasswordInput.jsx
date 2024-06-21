@@ -46,7 +46,7 @@ const CustomPasswordInput = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       className={classes.customPasswordInput}
-      placeholder="Password"
+      placeholder="Mot de passe"
     > 
    
     </input>
