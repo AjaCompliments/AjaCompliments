@@ -53,7 +53,7 @@ axios
                     onloadUserCredentials()
                   setToken(resp.data);
                   console.log(resp.data);
-                window.location.reload(false);
+              //  window.location.reload(false);
                 
                 })
                 .catch(error=>{
@@ -74,9 +74,10 @@ const cb1=(input)=>{
                    
                       localStorage.setItem('token', JSON.stringify(resp.data));
                       onloadUserCredentials()
-                    setToken(resp.data);
+                  //  setToken(resp.data);
                     console.log(resp.data);
-                  window.location.reload(false);
+                    setScreen("verification");
+               //   window.location.reload(false);
                   
                   })
                   .catch(error=>{
@@ -99,7 +100,7 @@ const cb1=(input)=>{
                         onloadUserCredentials()
                       setToken(resp.data);
                       console.log(resp.data);
-                    window.location.reload(false);
+                   // window.location.reload(false);
                     
                     })
                     .catch(error=>{
