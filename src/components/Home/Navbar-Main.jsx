@@ -199,12 +199,11 @@ const filteredCompliments = compliments.filter(compliment =>
   compliment.category.toLowerCase().includes(query.toLowerCase()) ||
   compliment.counterFlags.toLowerCase().includes(query.toLowerCase())
 );
-
-useEffect(() => {
+const hc= async () => {
   const userData = JSON.parse(localStorage.getItem('USR'));
   if (userData && userData.healthcomplications) {
       const complicationIndexes = JSON.parse(userData.healthcomplications);
-      axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
+     await axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
           .then(response => {
               const allQuestions = response.data;
               const complications = complicationIndexes.map(index => allQuestions[9].answears[index]);
@@ -214,7 +213,8 @@ useEffect(() => {
               console.error('Error fetching questions:', error);
           });
   }
-}, []);
+}
+useEffect(()=>{hc()}, []);
 
 //variables for marketplace
 const [showCart,setShowCart]=useState(false)
