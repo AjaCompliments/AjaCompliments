@@ -158,7 +158,7 @@ const fetchAndStoreCompliments = async () => {
 
     // Filter compliments based on newPrescriptions
     const filteredCompliments = allCompliments.filter(compliment =>
-      newPrescriptions.includes(compliment.complimentname)
+      newPrescriptions?newPrescriptions.includes(compliment.complimentname):uploadedPrescriptions.includes(compliment.complimentname)
     );
 
     // Store the filtered compliments in local storage
