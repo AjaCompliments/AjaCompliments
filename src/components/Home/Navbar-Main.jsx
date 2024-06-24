@@ -200,6 +200,21 @@ const filteredCompliments = compliments.filter(compliment =>
   compliment.counterFlags.toLowerCase().includes(query.toLowerCase())
 );
 
+useEffect(() => {
+  const userData = JSON.parse(localStorage.getItem('USR'));
+  if (userData && userData.healthcomplications) {
+      const complicationIndexes = JSON.parse(userData.healthcomplications);
+      axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
+          .then(response => {
+              const allQuestions = response.data;
+              const complications = complicationIndexes.map(index => allQuestions[9].answers[index]);
+              setHealthComplications(complications);
+          })
+          .catch(error => {
+              console.error('Error fetching questions:', error);
+          });
+  }
+}, []);
 
 //variables for marketplace
 const [showCart,setShowCart]=useState(false)
