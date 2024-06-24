@@ -209,7 +209,7 @@ const hc= () => {
           .then(response => {
               const allQuestions = response.data;
               console.log("allquestions",allQuestions)
-              const complications = complicationIndexes.map(index => JSON.parse(allQuestions[9].answears)[index]);
+              const complications = complicationIndexes.map(index => JSON.parse(allQuestions[7].answears)[index]);
               console.log("parsed",JSON.parse(allQuestions[9].answears));
               setHealthComplications(complications);
           })
