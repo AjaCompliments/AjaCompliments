@@ -201,12 +201,16 @@ const filteredCompliments = compliments.filter(compliment =>
 );
 const hc= async () => {
   const userData = JSON.parse(localStorage.getItem('USR'));
+  console.log("usrdata",userData)
   if (userData && userData.healthcomplications) {
       const complicationIndexes = JSON.parse(userData.healthcomplications);
+      console.log("indexes",complicationIndexes)
      await axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
           .then(response => {
               const allQuestions = response.data;
+              console.log("allquestions",allQuestions)
               const complications = complicationIndexes.map(index => JSON.parse(allQuestions[9].answears)[index]);
+              console.log("parsed",JSON.parse(allQuestions[9].answears));
               setHealthComplications(complications);
           })
           .catch(error => {
