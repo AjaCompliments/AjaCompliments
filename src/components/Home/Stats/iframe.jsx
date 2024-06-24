@@ -17,7 +17,7 @@ const ChartContainer = styled.div`
 const IframeComponent = (props) => {
   return (
    
-      <div style={{opacity:props.opacity?"100%":"0",scale:"60%",background:"#fff",left:"0",position:"absolute",marginTop:"27vh",marginLeft:"-22vw",borderRadius:"40px"}}>
+      <div style={{opacity:props.opacity?"100%":"0",scale:"60%",background:"#fff",left:"0",position:"absolute",marginTop:"27vh",marginLeft:"-22.7vw",borderRadius:"40px"}}>
       <iframe
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
         src="https://megaconfidence.github.io/bt-heart-monitor/"
