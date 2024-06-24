@@ -148,7 +148,9 @@ const fetchAndStoreCompliments = async () => {
   try {
     // Fetch newPrescriptions from localStorage
     const newPrescriptions = localStorage.getItem('newPrescriptions');
-    if (!newPrescriptions) return; // If newPrescriptions is not set, exit early
+    const uploadedPrescriptions = JSON.parse(localStorage.getItem('USR')).newrescriptions.split(",")
+    console.log("parsed newrescriptions",uploadedPrescriptions)
+    if (!newPrescriptions&&!uploadedPrescriptions) return; // If newPrescriptions is not set, exit early
 
     // Fetch all compliments from the provided URL
     const response = await axios.get(`${LINK_TO_BACKEND}/compliments/fetchAll`);
