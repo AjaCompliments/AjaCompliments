@@ -311,7 +311,7 @@ background: "linear-gradient(145.63deg, #44A5A5 12.8%, #91FCFC 12.81%, rgba(255,
 {!botStarted?<List sx={10}>
   
         <ListItem>
-            <WelcomeCard username={username.length?username:"user"}/>
+            <WelcomeCard username={props.user.length?props.user:"user"}/>
         </ListItem>
         <ListItem>
           <StartButton callback={()=>{setBotStart(true)}} />
