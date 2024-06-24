@@ -199,13 +199,13 @@ const filteredCompliments = compliments.filter(compliment =>
   compliment.category.toLowerCase().includes(query.toLowerCase()) ||
   compliment.counterFlags.toLowerCase().includes(query.toLowerCase())
 );
-const hc= async () => {
+const hc= () => {
   const userData = JSON.parse(localStorage.getItem('USR'));
   console.log("usrdata",userData)
   if (userData && userData.healthcomplications) {
       const complicationIndexes = JSON.parse(userData.healthcomplications);
       console.log("indexes",complicationIndexes)
-     await axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
+     axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
           .then(response => {
               const allQuestions = response.data;
               console.log("allquestions",allQuestions)
