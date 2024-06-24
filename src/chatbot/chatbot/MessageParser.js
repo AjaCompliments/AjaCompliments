@@ -6,9 +6,7 @@ const MessageParser = ({ children, actions }) => {
     if (message.includes('bonjour')) {
       actions.handleHello();
     }
-    if (message.includes('dog')) {
-              actions.handleDog();    
-            }
+
     if (message.includes('douleurs')||message.includes('mal au tete')) {
               actions.handleHeadache();    
             }

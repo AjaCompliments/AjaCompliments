@@ -1,6 +1,6 @@
 // in config.js
 import { createChatBotMessage } from 'react-chatbot-kit';
-//import DogPicture from '../widget/DogPicture'
+
 import QuickReplyButton from '../widget/QuickReply';
 import Questionnaire from '../widget/questionnaire';
 import Diagnostic from '../widget/diagnostic';
