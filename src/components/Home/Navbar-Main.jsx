@@ -207,7 +207,7 @@ useEffect(() => {
       axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
           .then(response => {
               const allQuestions = response.data;
-              const complications = complicationIndexes.map(index => allQuestions[9].answers[index]);
+              const complications = complicationIndexes.map(index => allQuestions[9].answears[index]);
               setHealthComplications(complications);
           })
           .catch(error => {
