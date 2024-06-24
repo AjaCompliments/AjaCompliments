@@ -206,7 +206,7 @@ const hc= async () => {
      await axios.get(`${LINK_TO_BACKEND}/questions/getAll`)
           .then(response => {
               const allQuestions = response.data;
-              const complications = complicationIndexes.map(index => allQuestions[9].answears[index]);
+              const complications = complicationIndexes.map(index => JSON.parse(allQuestions[9].answears)[index]);
               setHealthComplications(complications);
           })
           .catch(error => {
